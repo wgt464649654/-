@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>知乎悬浮动画小人实现</title>
+	<style type="text/css">
+		body {
+			width: 100%;
+			height: 100%;
+			background: #f6f6f6;
+		}
+		.Kanshan--dynamic {
+			bottom: 15px;
+			right: 20px;
+			width: 200px;
+			height: 200px;
+		}
+		.Kanshan--dynamic {
+			background-image: url(https://static.zhihu.com/heifetz/kanshan_array.074a2fd6bb36d3c29a39.png);
+			background-size: 10800px 200px;
+			background-color: red;
+			-webkit-animation: dynamic 2.4s steps(54) infinite;
+			animation: dynamic 2.4s steps(54) infinite;
+		}
+		@keyframes dynamic {
+			0% {
+				background-position: 0 0;
+			}
+			100% {
+				background-position: -10800px 0;
+			}
+		}
+	</style>
+</head>
+<body>
+	主要用到了css3的animation属性，让一串图片连成动画</br>
+	animation: dynamic 2.4s steps(54) infinite;</br>
+	2.4秒表示动画完成时长，来控制播放速度</br>
+	steps(54)表示帧与帧之间的切换分为x步执行，因为这张图片有54张小图片，
+所以分成54可以流畅执行</br>
+	infinite表示动画应该无限次播放</br></br>
+	<div class="Kanshan--dynamic"></div>
+</html>
+<html>
