@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>原生js实现</title>
+  <style type="text/css">
+    body {
+      width: 100%;
+      height: 500px;
+      line-height: 500px;
+      background: yellow;
+      text-align: center;
+    }
+    span {
+      "z-index": 99;
+      position: absolute;
+      font-weight: bold;
+      color: #ff6651;
+    }
+  </style>
+  <script src='jquery-3.3.1.min.js'></script>
+  </head>
+<body id="body">
+  点击黄色区域
+</body>
+<script type="text/javascript">
+  let i = 0;
+  document.getElementById('body').addEventListener('click', (e) => {
+    let paegX = e.pageX;
+    let pageY = e.pageY;
+    const array = ["富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善"];
+    // 添加dom
+    let span = document.createElement("span");
+    span.setAttribute("style",`top:${pageY - 250}px;left:${paegX}px`);
+    // 添加内容
+    let text = document.createTextNode(array[i]);
+    span.appendChild(text);
+
+    i = (i + 1) % array.length;
+    // 拼接内同
+    document.getElementById('body').appendChild(span);
+    // 添加动画 原生js添加动画较麻烦 这里才用jquery
+    // 详见https://www.teakki.com/p/590be27552005baa303243a2
+    $(span).animate({
+      "top": pageY - 500,
+      "opacity": 0
+    },
+    1500,
+    function() {
+      span.remove();
+    });
+  })
+
+</script>
+</html>
