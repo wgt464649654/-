@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            display: flex;
+            height: auto;
+            flex-wrap: wrap;
+            margin: auto;
+        }
+        .after{
+            width: 300px;
+            height: 200px;
+            border-radius: 5px;
+            background: #ffffff;
+            margin: 10px;
+            transition: all 0.5s;
+            box-shadow: 0px 10px 30px #cfcfcf;
+            align-self: left;
+        }
+        .after:hover{
+            cursor: pointer;
+            transform: translateY(-10px);
+        }
+    </style>
+</head>
+<body onresize="resize()">
+    <div class="container" id="container">
+      <div class="after"></div>
+      <div class="after"></div>
+      <div class="after"></div>
+      <div class="after"></div>
+      <div class="after"></div>
+      <div class="after"></div>
+      <div class="after"></div>
+      <div class="after"></div>
+      <div class="after"></div>
+      <div class="after"></div>
+      <div class="after"></div>
+    </div>
+</body>
+<script type="text/javascript">
+  let container = document.getElementById('container');
+  resize();
+  function resize() {
+    let clientWidth = document.body.clientWidth;
+    container.style.width = Math.floor(clientWidth/320)*320 + 'px';
+  }
+</script>
+</html>
